@@ -31,3 +31,30 @@ viii. photo table = 1000
 ix. review table = 1000 
 x. tip table =  1000
 xi. user table = 1000
+
+
+
+2. Find the total distinct records by either the foreign key or primary key for each table. If two foreign keys are listed in the table, please specify which foreign key.
+
+SELECT COUNT(DISTINCT(key))
+FROM table;
+
+Example;
+
+
+SELECT COUNT(DISTINCT(id)) AS id_count
+FROM business;
+
+
+i. Business =       id: 10000
+ii. Hours =         business_id: 1562
+iii. Category =     business_id: 2643
+iv. Attribute =     business_id: 1115
+v. Review =         id: 10000, business_id: 8090, user_id: 9581
+vi. Checkin = business_id: 493
+vii. Photo =        id: 10000, business_id: 6493
+viii. Tip =         user_id: 537, business_id: 3979
+ix. User = 10000
+x. Friend = 11
+xi. Elite_years = user_id: 2780
+
