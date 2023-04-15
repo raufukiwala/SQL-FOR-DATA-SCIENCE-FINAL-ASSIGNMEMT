@@ -20,16 +20,14 @@ Results:
 |                  10000 |
 +------------------------+
 
-Table name              Count
-
-Atribute                1000
-Business                1000
-Category                1000
-Checkin                 1000
-Elite_Years             1000
-Friend                  1000
-Hours                   1000
-Photo                   1000
-Review                  1000
-Tip                     1000
-User                    1000
+i. Attribute table = 1000
+ii. Business table = 1000
+iii. Category table = 1000
+iv. Checkin table = 1000
+v. elite_years table = 1000
+vi. friend table = 1000 
+vii. hours table = 1000
+viii. photo table = 1000
+ix. review table = 1000 
+x. tip table =  1000
+xi. user table = 1000
