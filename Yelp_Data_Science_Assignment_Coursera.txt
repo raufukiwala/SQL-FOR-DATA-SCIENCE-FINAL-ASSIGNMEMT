@@ -1,0 +1,35 @@
+Part 1. Yelp Dataset Profiling and Understanding
+
+
+1. Profile the data by finding the total number of records for each of the tables below:
+
+SELECT COUNT(*)
+FROM table;
+
+Example;
+
+SELECT COUNT(*) AS total_attributes_count
+FROM attribute;
+
+
+Results:
+
++------------------------+
+| total_attributes_count |
++------------------------+
+|                  10000 |
++------------------------+
+
+Table name              Count
+
+Atribute                1000
+Business                1000
+Category                1000
+Checkin                 1000
+Elite_Years             1000
+Friend                  1000
+Hours                   1000
+Photo                   1000
+Review                  1000
+Tip                     1000
+User                    1000
