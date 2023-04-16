@@ -181,4 +181,58 @@ v. Table: User, Column: Review_count
 
 
 
+6. Find the distribution of star ratings to the business in the following cities:
+
+i. Avon
+
+SQL code used to arrive at answer:
+
+	SELECT  stars,
+			COUNT(review_count) AS count
+	FROM business
+	WHERE city = 'Avon'
+	GROUP BY stars;
+
+
+Copy and Paste the Resulting Table Below (2 columns â€“ star rating and count):
+
+	+-------+-------+
+	| stars | count |
+	+-------+-------+
+	|   1.5 |     1 |
+	|   2.5 |     2 |
+	|   3.5 |     3 |
+	|   4.0 |     2 |
+	|   4.5 |     1 |
+	|   5.0 |     1 |
+	+-------+-------+
+
+
+ii. Beachwood
+
+SQL code used to arrive at answer:
+
+	SELECT  stars,
+			COUNT(review_count) AS count
+	FROM business
+	WHERE city = 'Beachwood'
+	GROUP BY stars;
+
+
+Copy and Paste the Resulting Table Below (2 columns â€“ star rating and count):
+
+	+-------+-------+
+	| stars | count |
+	+-------+-------+
+	|   2.0 |     1 |
+	|   2.5 |     1 |
+	|   3.0 |     2 |
+	|   3.5 |     2 |
+	|   4.0 |     1 |
+	|   4.5 |     2 |
+	|   5.0 |     5 |
+	+-------+-------+
+
+
+
     
