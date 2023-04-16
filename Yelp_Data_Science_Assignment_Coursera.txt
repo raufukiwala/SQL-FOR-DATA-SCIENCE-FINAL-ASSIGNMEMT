@@ -304,6 +304,66 @@ Copy and Paste the Resulting Table Below (2 columns â€“ star rating and cou
 	(Output limit exceeded, 25 of 10000 total rows shown)
 
 
+9. Are there more reviews with the word "love" or with the word "hate" in them?
+
+	Answer: YES love has a count of 1780 while hate has 232
+
+	
+	SQL code used to arrive at answer:
+
+	SELECT 	COUNT(*) AS love_review_count
+	FROM review
+	WHERE text LIKE '%love%';
+
+
+	+-------------------+
+	| love_review_count |
+	+-------------------+
+	|              1780 |
+	+-------------------+
+
+
+
+	SELECT COUNT(*) AS hate_review_count
+	FROM review
+	WHERE text LIKE '%hate%';
+
+	+-------------------+
+	| hate_review_count |
+	+-------------------+
+	|               232 |
+	+-------------------+
+
+	
+	
+10. Find the top 10 users with the most fans:
+
+	SQL code used to arrive at answer:
+
+	SELECT  id,
+        name,
+        fans
+	FROM user
+	ORDER BY fans DESC
+	LIMIT 10;``
+	
+	
+	Copy and Paste the Result Below:
+
+	+------------------------+-----------+------+
+	| id                     | name      | fans |
+	+------------------------+-----------+------+
+	| -9I98YbNQnLdAmcYfb324Q | Amy       |  503 |
+	| -8EnCioUmDygAbsYZmTeRQ | Mimi      |  497 |
+	| --2vR0DIsmQ6WfcSzKWigw | Harald    |  311 |
+	| -G7Zkl1wIWBBmD0KRy_sCw | Gerald    |  253 |
+	| -0IiMAZI2SsQ7VmyzJjokQ | Christine |  173 |
+	| -g3XIcCb2b-BD0QBCcq2Sw | Lisa      |  159 |
+	| -9bbDysuiWeo2VShFJJtcw | Cat       |  133 |
+	| -FZBTkAZEXoP7CYvRV2ZwQ | William   |  126 |
+	| -9da1xk7zgnnfO1uTVYGkA | Fran      |  124 |
+	| -lh59ko3dxChBSZ9U7LfUw | Lissa     |  120 |
+	+------------------------+-----------+------+
 
 
     
