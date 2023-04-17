@@ -366,4 +366,52 @@ Copy and Paste the Resulting Table Below (2 columns â€“ star rating and cou
 	+------------------------+-----------+------+
 
 
+
+Part 2: Inferences and Analysis
+
+1. Pick one city and category of your choice and group the businesses in that city or category by their overall star rating. Compare the businesses with 2-3 stars to the businesses with 4-5 stars and answer the following questions. Include your code.
+	
+i. Do the two groups you chose to analyze have a different distribution of hours?
+	Yes, the 4.5 star group seem to have the shorter group than the 2.5 star group
+
+ii. Do the two groups you chose to analyze have a different number of reviews?
+    Yes they have different number of reviews even though one is close to the number of the other group
+         
+iii. Are you able to infer anything from the location data provided between these two groups? Explain.
+	No.
+SQL code used for analysis:
+
+	SELECT B.name,
+				B.review_count,
+				H.hours,
+				postal_code,
+				CASE
+					WHEN hours LIKE "%monday%" THEN 1
+					WHEN hours LIKE "%tuesday%" THEN 2
+					WHEN hours LIKE "%wednesday%" THEN 3
+					WHEN hours LIKE "%thursday%" THEN 4
+					WHEN hours LIKE "%friday%" THEN 5
+					WHEN hours LIKE "%saturday%" THEN 6
+					WHEN hours LIKE "%sunday%" THEN 7
+				END AS ord,
+				CASE
+					WHEN B.stars BETWEEN 2 AND 3 THEN '2-3 stars'
+					WHEN B.stars BETWEEN 4 AND 5 THEN '4-5 stars'
+				END AS star_rating
+			FROM business B INNER JOIN hours H
+			ON B.id = H.business_id
+			INNER JOIN category C
+			ON C.business_id = B.id
+			WHERE (B.city == 'Las Vegas'
+			AND
+			C.category LIKE 'shopping')
+			AND
+			(B.stars BETWEEN 2 AND 3
+			OR
+			B.stars BETWEEN 4 AND 5)
+			GROUP BY stars,ord
+			ORDER BY ord,star_rating ASC
+
+
+
     
