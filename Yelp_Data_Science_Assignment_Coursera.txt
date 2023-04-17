@@ -414,4 +414,34 @@ SQL code used for analysis:
 
 
 
+2. Group business based on the ones that are open and the ones that are closed. What differences can you find between the ones that are still open and the ones that are closed? List at least two differences and the SQL code you used to arrive at your answer.
+		
+i. Difference 1:
+	Open: AVG(review_count) = 31.757
+	Closed: AVG(review_count) = 23.198
+         
+ii. Difference 2:
+	Open: AVG(avg_stars) = 3.679
+	Closed: AVG(avg_stars) = 3.520        
+         
+         
+SQL code used for analysis:
+
+	SELECT COUNT(DISTINCT(id)) As total_ids,
+			   AVG(review_count) AS review_count,
+			   SUM(review_count) AS total_count,
+			   AVG(stars) AS avg_stars,
+			   is_open
+	FROM business
+	GROUP BY is_open
+
+
+	Result:
+
+	+-----------+---------------+-------------+---------------+---------+
+	| total_ids |  review_count | total_count |     avg_stars | is_open |
+	+-----------+---------------+-------------+---------------+---------+
+	|      1520 | 23.1980263158 |       35261 | 3.52039473684 |       0 |
+	|      8480 | 31.7570754717 |      269300 | 3.67900943396 |       1 |
+	+-----------+---------------+-------------+---------------+---------+
     
